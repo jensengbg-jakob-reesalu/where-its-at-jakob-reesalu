@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "60aed1e2-286d-4cb7-be0b-7c246c2ebc40",
+      "username": "staff",
+      "password": "$2b$10$kgjzCdiQnYdcmI1iCRCAVuAgvs1U7Hh9yvXcfTEeY63VMSZPtWP2O",
+      "role": "staff"
+    },
+    {
+      "id": "48464b1a-d32c-45a4-909f-8f2c556d6ede",
+      "username": "admin",
+      "password": "$2b$10$Kfq3viFJ3H6nFtRTwjsuwO3ejJLl8tuzrLeaqFsRijDAlmDIJNBHK",
+      "role": "admin"
+    }
+  ],
+  "events": [
+    {
+      "name": "Batman The Musical",
+      "where": "Batcave",
+      "date": "2020-jun-6",
+      "fromTime": "18:00",
+      "toTime": "22:00",
+      "price": 450,
+      "ticketsAvailable": 500,
+      "bookedTickets": [
+        {
+          "ticketID": "123"
+        }
+      ]
+    }
+  ]
+}

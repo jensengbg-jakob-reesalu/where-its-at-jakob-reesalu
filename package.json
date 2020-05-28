@@ -1,0 +1,28 @@
+{
+  "name": "where-its-at-jakob-reesalu",
+  "version": "1.0.0",
+  "description": "Final assignment spring semester",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensengbg-jakob-reesalu/where-its-at-jakob-reesalu.git"
+  },
+  "author": "Jakob",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensengbg-jakob-reesalu/where-its-at-jakob-reesalu/issues"
+  },
+  "homepage": "https://github.com/jensengbg-jakob-reesalu/where-its-at-jakob-reesalu#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0",
+    "nodemon": "^2.0.4",
+    "uuid": "^8.1.0"
+  }
+}
