@@ -4,19 +4,11 @@ const adapter = new FileSync("database.json");
 const db = low(adapter);
 
 module.exports = {
-    findTicket(ticket) {
-        let ticketFound = db.get("events").find({ bookedTickets: [{ ticketID: ticket }] }).value();
-        if (ticketFound !== undefined) {
-            return true;
-        } else {
-            return false;
-        } 
+    findTicket(name, id) {
+        return db.get("events").find({ name: name }).get("bookedTickets").find({ ticketID: id }).value();
     },
 
-    removeTicket(ticket) {
-        let ticketEvent = db.get("events").find({ bookedTickets: [{ ticketID: ticket }] }).value();
-        ticketEvent.bookedTickets.
-
-
+    removeTicket(name, id) {    
+        return db.get("events").find({ name: name }).get("bookedTickets").remove({ ticketID: id }).write();
     }
 };

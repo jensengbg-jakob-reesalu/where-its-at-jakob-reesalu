@@ -11,5 +11,9 @@ module.exports = {
 
     findEvent(body) {
         return db.get("events").find({ name: body.name }).value();
+    },
+
+    getEvents() {
+        return db.get("events").value();
     }
 };

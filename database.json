@@ -22,11 +22,7 @@
       "toTime": "22:00",
       "price": 450,
       "ticketsAvailable": 500,
-      "bookedTickets": [
-        {
-          "ticketID": "123"
-        }
-      ]
+      "bookedTickets": []
     }
   ]
 }

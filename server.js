@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const loginRouter = require("./controller/login-router");
 const createRouter = require("./controller/create-router");
 const verifyRouter = require("./controller/verify-router");
+const eventsRouter = require("./controller/events-router");
 
 // APP.USE
 app.use(express.static("view"));
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use("/api", loginRouter);
 app.use("/api", createRouter);
 app.use("/api", verifyRouter);
+app.use("/api", eventsRouter);
 
 app.listen(8000, () => {
     console.log("Started server!");
