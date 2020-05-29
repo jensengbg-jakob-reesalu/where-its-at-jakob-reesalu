@@ -8,6 +8,7 @@ const loginRouter = require("./controller/login-router");
 const createRouter = require("./controller/create-router");
 const verifyRouter = require("./controller/verify-router");
 const eventsRouter = require("./controller/events-router");
+const orderRouter = require("./controller/order-router");
 
 // APP.USE
 app.use(express.static("view"));
@@ -17,6 +18,7 @@ app.use("/api", loginRouter);
 app.use("/api", createRouter);
 app.use("/api", verifyRouter);
 app.use("/api", eventsRouter);
+app.use("/api", orderRouter);
 
 app.listen(8000, () => {
     console.log("Started server!");

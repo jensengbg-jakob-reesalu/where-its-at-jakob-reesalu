@@ -9,8 +9,8 @@ module.exports = {
         return true; 
     },
 
-    findEvent(body) {
-        return db.get("events").find({ name: body.name }).value();
+    findEvent(name) {
+        return db.get("events").find({ name: name }).value();
     },
 
     getEvents() {

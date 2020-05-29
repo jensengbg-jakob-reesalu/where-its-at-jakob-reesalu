@@ -8,7 +8,7 @@ router.post("/create", async (req, res) => {
         success: false
     };
     const body = req.body;
-    const eventConflict = await findEvent(body);
+    const eventConflict = await findEvent(body.name);
     if (eventConflict) {
         resObj.message = "Event already exists.";
     } else {

@@ -21,8 +21,12 @@
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 450,
-      "ticketsAvailable": 500,
-      "bookedTickets": []
+      "ticketsAvailable": 9,
+      "bookedTickets": [
+        {
+          "ticketID": "T6T74d"
+        }
+      ]
     }
   ]
 }
