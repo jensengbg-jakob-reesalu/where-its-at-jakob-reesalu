@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { v4:uuidv4 } = require("uuid");
 
 const { getUser } = require("../model/getUser");
-const { comparePasswords } = require("../modules/bcrypt-functions");
+const { comparePasswords } = require("./modules/bcrypt-functions");
 
 router.post("/login", async (req, res) => {
     let resObj = {

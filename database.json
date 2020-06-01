@@ -21,10 +21,38 @@
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 450,
-      "ticketsAvailable": 9,
+      "ticketsAvailable": 4,
       "bookedTickets": [
         {
           "ticketID": "T6T74d"
+        }
+      ]
+    },
+    {
+      "name": "Cats",
+      "where": "Scandinavium",
+      "date": "2020-aug-8",
+      "fromTime": "18:00",
+      "toTime": "22:00",
+      "price": 699,
+      "ticketsAvailable": 4,
+      "bookedTickets": [
+        {
+          "ticketID": "7rU9lB"
+        }
+      ]
+    },
+    {
+      "name": "Bob Dylan On Tour",
+      "where": "Globen",
+      "date": "2020-sept-22",
+      "fromTime": "17:00",
+      "toTime": "21:00",
+      "price": 499,
+      "ticketsAvailable": 4,
+      "bookedTickets": [
+        {
+          "ticketID": "5zr684"
         }
       ]
     }
