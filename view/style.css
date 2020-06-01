@@ -199,8 +199,26 @@ button.verify-page {
     border-radius: 3px;
 }
 
+.ticket-container section p {
+    margin-left: 15px;
+}
+
+.ticket-container section p:last-child {
+    margin-top: 0;
+}
+
+.ticket-label-p {
+    font-family: "Fira Sans";
+    font-weight: bold;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
 .ticket-container #what {
     height: 84px;
+    font-family: Sansita One;
+    font-size: 26px;
+    color: #F56B9A;
 }
 
 .ticket-container #where {
@@ -209,18 +227,69 @@ button.verify-page {
     border-top: 1px dashed rgba(0, 0, 0, 0.4);;
 }
 
-.ticket-container #when-from-to {
+#where p:last-child {
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.ticket-container .when-from-to {
+    display: flex;
+    justify-content: space-evenly;
     height: 66px;
     background: rgba(0, 0, 0, 0.06);
+}
+
+.when-from-to section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 33%;
+    border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+.when-from-to p {
+    margin: 0;
+    padding: 0;
+}
+
+.when-from-to section:first-child {
+    border-left: 0;
+    border-right: 0;
+}
+
+.when-from-to section:last-child {
+    border-left: 0;
+    border-right: 0;
+}
+
+.when-from-to p:last-child {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .ticket-container #barcode-img {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 180px;
     background: rgba(0, 0, 0, 0.12);
+}
+
+#barcode-img p {
+    margin-left: 0;
+    font-family: Fira Sans;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+
+    color: rgba(0, 0, 0, 0.4);
 }
 
 #barcode-img img {
