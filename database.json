@@ -17,21 +17,30 @@
     {
       "name": "Batman The Musical",
       "where": "Batcave",
-      "date": "2020-jun-6",
+      "date": "6 JUN",
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 450,
-      "ticketsAvailable": 4,
+      "ticketsAvailable": 100,
       "bookedTickets": [
         {
           "ticketID": "T6T74d"
+        },
+        {
+          "ticketID": "4LOTOB"
+        },
+        {
+          "ticketID": "83Fs9c"
+        },
+        {
+          "ticketID": "kB6Izg"
         }
       ]
     },
     {
       "name": "Cats",
       "where": "Scandinavium",
-      "date": "2020-aug-8",
+      "date": "8 AUG",
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 699,
@@ -45,7 +54,7 @@
     {
       "name": "Bob Dylan On Tour",
       "where": "Globen",
-      "date": "2020-sept-22",
+      "date": "22 SEPT",
       "fromTime": "17:00",
       "toTime": "21:00",
       "price": 499,

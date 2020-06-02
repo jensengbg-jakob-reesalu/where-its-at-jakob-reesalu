@@ -9,6 +9,7 @@ router.post("/order", async (req, res) => {
         success: false,
     };
     const body = req.body;
+    console.log("This is body: ", body);
     const ticketID = generateTicket(6);
     console.log("ticketID: ", ticketID);
     const ticketAdded = await addTicket(body.name, ticketID);
