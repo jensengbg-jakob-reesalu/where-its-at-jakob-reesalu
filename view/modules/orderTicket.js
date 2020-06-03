@@ -10,4 +10,5 @@ export async function orderTicket(inputName) {
     });
     let data = await response.json();
     console.log(data);
+    return data;
 };

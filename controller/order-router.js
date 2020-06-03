@@ -9,12 +9,12 @@ router.post("/order", async (req, res) => {
         success: false,
     };
     const body = req.body;
-    console.log("This is body: ", body);
     const ticketID = generateTicket(6);
-    console.log("ticketID: ", ticketID);
     const ticketAdded = await addTicket(body.name, ticketID);
     if (ticketAdded) {
         resObj.success = true;
+        resObj.ticket = ticketID;
+        console.log(`New ticket ordered for '${body.name}', ticketID: ${ticketID}`);
     } else {
         resObj.message = "Event is sold out!";
     };

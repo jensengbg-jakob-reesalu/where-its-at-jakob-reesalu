@@ -6,10 +6,7 @@ async function getEvents() {
     let url = "http://localhost:8000/api/events";
     let response = await fetch(url, { method: "GET" });
     let data = await response.json();
-    console.log("eventsArray: ", data);
-    let list = await listEvents(data);
-    console.log(list);
-    // return await data;
+    await listEvents(data);
 };
 
 function listEvents(array) {    
@@ -38,7 +35,7 @@ function listEvents(array) {
         sectionRest.appendChild(divTimePrice);
 
         section.addEventListener("click", () => {
-            localStorage.setItem("event-object", JSON.stringify(object));
+            sessionStorage.setItem("event-object", JSON.stringify(object));
             location.href = "buy.html";
         });
     });

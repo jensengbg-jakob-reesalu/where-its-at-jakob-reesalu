@@ -1,6 +1,6 @@
 import { orderTicket } from "./modules/orderTicket.js";
 
-let event = localStorage.getItem("event-object");
+let event = sessionStorage.getItem("event-object");
 event = JSON.parse(event);
 let time = ` kl ${event.fromTime} - ${event.toTime}`;
 
@@ -12,6 +12,17 @@ document.querySelector(".buy-price").innerHTML += `${event.price} sek`;
 
 let button = document.querySelector("button");
 button.addEventListener("click", async () => {
-    await orderTicket(event.name);
-    location.href = "ticket.html";
+    let response = await orderTicket(event.name);
+    if (response.success) {
+        sessionStorage.setItem("ticket-ID", response.ticket);
+        location.href = "ticket.html";
+    } else {
+        let section = document.querySelector(".sold-out-section");
+        section.classList.toggle("hidden");
+        let button = document.querySelector(".sold-out-button");
+        button.innerHTML = response.message;
+        button.addEventListener("click", ()=> {
+            location.href = "index.html";
+        })
+    };
 });
