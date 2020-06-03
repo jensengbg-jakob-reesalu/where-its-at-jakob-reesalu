@@ -21,7 +21,8 @@
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 450,
-      "ticketsAvailable": 76,
+      "ticketsAvailable": 58,
+      "ticketsSold": 9,
       "bookedTickets": [
         {
           "ticketID": "T6T74d"
@@ -36,76 +37,22 @@
           "ticketID": "kB6Izg"
         },
         {
-          "ticketID": "1S4dd7"
+          "ticketID": "E94eBc"
         },
         {
-          "ticketID": "27ETGF"
+          "ticketID": "0VAm0t"
         },
         {
-          "ticketID": "1510UN"
+          "ticketID": "zbr3NM"
         },
         {
-          "ticketID": "K09n9g"
+          "ticketID": "SeerGw"
         },
         {
-          "ticketID": "cfIprO"
+          "ticketID": "259Rh5"
         },
         {
-          "ticketID": "5263UN"
-        },
-        {
-          "ticketID": "USLMWq"
-        },
-        {
-          "ticketID": "V2pKcN"
-        },
-        {
-          "ticketID": "05784s"
-        },
-        {
-          "ticketID": "CkgSF2"
-        },
-        {
-          "ticketID": "i7l038"
-        },
-        {
-          "ticketID": "DyG1gI"
-        },
-        {
-          "ticketID": "8KEnxq"
-        },
-        {
-          "ticketID": "9G7Ihg"
-        },
-        {
-          "ticketID": "3qBEo6"
-        },
-        {
-          "ticketID": "4R1JSc"
-        },
-        {
-          "ticketID": "7o02Ov"
-        },
-        {
-          "ticketID": "5o4g6D"
-        },
-        {
-          "ticketID": "HBZs03"
-        },
-        {
-          "ticketID": "PUg6Az"
-        },
-        {
-          "ticketID": "tLMxDt"
-        },
-        {
-          "ticketID": "AtV6vt"
-        },
-        {
-          "ticketID": "r7q72P"
-        },
-        {
-          "ticketID": "COLJZ1"
+          "ticketID": "UAJe34"
         }
       ]
     },
@@ -116,24 +63,9 @@
       "fromTime": "18:00",
       "toTime": "22:00",
       "price": 699,
-      "ticketsAvailable": 0,
-      "bookedTickets": [
-        {
-          "ticketID": "7rU9lB"
-        },
-        {
-          "ticketID": "s2mCEy"
-        },
-        {
-          "ticketID": "osThS5"
-        },
-        {
-          "ticketID": "00mv76"
-        },
-        {
-          "ticketID": "qP2474"
-        }
-      ]
+      "ticketsAvailable": 5,
+      "ticketsSold": 0,
+      "bookedTickets": []
     },
     {
       "name": "Bob Dylan On Tour",
@@ -142,24 +74,10 @@
       "fromTime": "17:00",
       "toTime": "21:00",
       "price": 499,
-      "ticketsAvailable": 0,
-      "bookedTickets": [
-        {
-          "ticketID": "RP7SRm"
-        },
-        {
-          "ticketID": "F0D5WT"
-        },
-        {
-          "ticketID": "4V2jwr"
-        },
-        {
-          "ticketID": "pQ9njg"
-        },
-        {
-          "ticketID": "R4G5bt"
-        }
-      ]
+      "ticketsAvailable": 5,
+      "ticketsSold": 0,
+      "bookedTickets": []
     }
+
   ]
 }

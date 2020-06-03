@@ -22,5 +22,11 @@ module.exports = {
 
     removeTicket(name, id) {    
         return db.get("events").find({ name: name }).get("bookedTickets").remove({ ticketID: id }).write();
+    },
+    
+    increaseSold(name) {    
+        let ticketsSold = db.get("events").find({ name: name }).get("ticketsSold").value();
+        ticketsSold++;
+        return db.get("events").find({ name: name }).assign({ ticketsSold: ticketsSold }).write();
     }
 };

@@ -1,13 +1,11 @@
+import { getEvents } from "./modules/getEvents.js";
+
 let eventsContainer = document.querySelector(".events-container");
 
-const events = getEvents();
-
-async function getEvents() {
-    let url = "http://localhost:8000/api/events";
-    let response = await fetch(url, { method: "GET" });
-    let data = await response.json();
-    await listEvents(data);
-};
+(async function() {
+    let eventsArray = await getEvents();
+    await listEvents(eventsArray);
+})();
 
 function listEvents(array) {    
     array.forEach(object => {
