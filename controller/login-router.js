@@ -12,12 +12,11 @@ router.post("/login", async (req, res) => {
     };
     const body = req.body;
     const user = await getUser(body.username);
-    let isAMatch;
-    try {
-        isAMatch = await comparePasswords(body.password, user.password);
-    } catch (error) {
-        console.error(error);
-    }
+    if (user == undefined) {
+        resObj.message = "Wrong username or password!";
+        return res.send(JSON.stringify(resObj));
+    };
+    const isAMatch = await comparePasswords(body.password, user.password);
     if (user && isAMatch) {
         const secretKey = uuidv4();
         const token = jwt.sign({ 

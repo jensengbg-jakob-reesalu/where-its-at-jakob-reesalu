@@ -16,8 +16,21 @@ module.exports = {
         };
     },
 
-    findTicket(name, id) {
-        return db.get("events").find({ name: name }).get("bookedTickets").find({ ticketID: id }).value();
+    findTicket(id) {
+        let ticketInfo = {
+            eventName: "",
+            exists: false
+        };
+        let events = db.get("events").value();
+        events.forEach(event => {
+            let bookedTickets = event.bookedTickets;
+            let found = bookedTickets.find(object => object.ticketID == id);
+            if (found) {
+                ticketInfo.eventName = event.name;
+                ticketInfo.exists = true;
+            };    
+        });
+        return ticketInfo;
     },
 
     removeTicket(name, id) {    

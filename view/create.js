@@ -1,9 +1,21 @@
 import { getEvents } from "./modules/getEvents.js"
+import { createEvent } from "./modules/createEvent.js"
+import { getValues } from "./modules/getValues.js"
+
+// Token check
+let token = sessionStorage.getItem("token");
+if (!token) {
+    location.href = "login.html";
+} else {
+    document.querySelector("body").classList.toggle("display-none");
+};
 
 let btnElem = document.querySelector(".add-event-button");
 let gridElem = document.querySelector(".events-grid");
+let inputs = document.querySelectorAll("input");
 let eventsArray = [];
 
+// Getting events to gridElem
 (async function() {
     eventsArray = await getEvents();
     await listEvents(eventsArray);
@@ -15,10 +27,11 @@ btnElem.addEventListener("mousedown", () => {
 
 btnElem.addEventListener("mouseup", async () => {
     btnElem.classList.toggle("click");
-    let values = getValues();
-    await createEvent(values);
+    let values = getValues(inputs);
+    let created = await createEvent(values);
+    console.log(created);
     eventsArray = await getEvents();
-    await clearEvents();
+    await clearGrid();
     await listEvents(eventsArray);
 });
 
@@ -46,25 +59,13 @@ function listEvents(array) {
     });
 };
 
-function getValues() {
-    let obj = {}
-    obj.name = document.getElementById("name-input").value;
-    obj.where = document.getElementById("where-input").value;
-    obj.date = document.getElementById("date-input").value;
-    obj.from = document.getElementById("from-input").value;
-    obj.to = document.getElementById("to-input").value;
-    obj.tickets = document.getElementById("tickets-input").value;
-    obj.price = document.getElementById("price-input").value;
-};
-
-function clearEvents() {
+function clearGrid() {
     let gridPs = document.querySelectorAll(".grid-p");
-    console.log(gridPs);
     gridPs.forEach(p => {
         gridElem.removeChild(p);
     });
-}
+};
 
-function createEvent(object) {
+function clearInputs(inputs) {
 
 }

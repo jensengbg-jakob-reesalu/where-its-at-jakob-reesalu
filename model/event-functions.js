@@ -5,6 +5,8 @@ const db = low(adapter);
 
 module.exports = {
     addEvent(body) {
+        body.ticketsSold = 0;
+        body.bookedTickets = [];
         db.get("events").push(body).write();
         return true; 
     },

@@ -15,7 +15,8 @@ router.post("/order", async (req, res) => {
         resObj.success = true;
         resObj.ticket = ticketID;
         increaseSold(body.name);
-        console.log(`New ticket ordered for '${body.name}', ticketID: ${ticketID}`);
+        console.log(`(user) - Ordered ticket for '${body.name}', ticketID: "${ticketID}"`);
+        console.log(`(database) - Added "${ticketID}" to '${body.name}'`);
     } else {
         resObj.message = "Event is sold out!";
     };

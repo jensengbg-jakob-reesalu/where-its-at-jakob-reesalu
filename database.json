@@ -20,39 +20,15 @@
       "date": "6 JUN",
       "fromTime": "18:00",
       "toTime": "22:00",
+      "ticketsAvailable": 3,
       "price": 450,
-      "ticketsAvailable": 58,
-      "ticketsSold": 9,
+      "ticketsSold": 2,
       "bookedTickets": [
         {
-          "ticketID": "T6T74d"
+          "ticketID": "wesP3l"
         },
         {
-          "ticketID": "4LOTOB"
-        },
-        {
-          "ticketID": "83Fs9c"
-        },
-        {
-          "ticketID": "kB6Izg"
-        },
-        {
-          "ticketID": "E94eBc"
-        },
-        {
-          "ticketID": "0VAm0t"
-        },
-        {
-          "ticketID": "zbr3NM"
-        },
-        {
-          "ticketID": "SeerGw"
-        },
-        {
-          "ticketID": "259Rh5"
-        },
-        {
-          "ticketID": "UAJe34"
+          "ticketID": "px3q06"
         }
       ]
     },
@@ -62,10 +38,14 @@
       "date": "8 AUG",
       "fromTime": "18:00",
       "toTime": "22:00",
+      "ticketsAvailable": 4,
       "price": 699,
-      "ticketsAvailable": 5,
-      "ticketsSold": 0,
-      "bookedTickets": []
+      "ticketsSold": 1,
+      "bookedTickets": [
+        {
+          "ticketID": "hgrHXe"
+        }
+      ]
     },
     {
       "name": "Bob Dylan On Tour",
@@ -73,11 +53,28 @@
       "date": "22 SEPT",
       "fromTime": "17:00",
       "toTime": "21:00",
-      "price": 499,
       "ticketsAvailable": 5,
+      "price": 499,
       "ticketsSold": 0,
       "bookedTickets": []
+    },
+    {
+      "name": "Tjolahopp in Concert",
+      "where": "Scandinavium",
+      "date": "23 OCT",
+      "fromTime": "18:00",
+      "toTime": "21:00",
+      "ticketsAvailable": 3,
+      "price": "355",
+      "ticketsSold": 2,
+      "bookedTickets": [
+        {
+          "ticketID": "64rAR0"
+        },
+        {
+          "ticketID": "2oTI79"
+        }
+      ]
     }
-
   ]
 }

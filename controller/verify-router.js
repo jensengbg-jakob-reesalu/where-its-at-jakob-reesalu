@@ -8,9 +8,11 @@ router.post("/verify", async (req, res) => {
         success: false
     };
     let body = req.body;
-    const ticketExists = await findTicket(body.name, body.ticketID);
-    if (ticketExists) {
-        await removeTicket(body.name, body.ticketID);
+    const ticket = await findTicket(body.ticketID);
+    if (ticket.exists) {
+        await removeTicket(ticket.eventName, body.ticketID);
+        console.log((`(staff) - Verified ticket "${body.ticketID}"`));
+        console.log((`(database) - Removed ticket "${body.ticketID}"`));
         resObj.success = true;
     };
     res.send(JSON.stringify(resObj));

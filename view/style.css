@@ -531,7 +531,6 @@ button.verify-page {
     margin: 0;
 }
 
-
 /* EFFECTS */
 .mouseover {
     background-color: pink;
@@ -544,5 +543,11 @@ button.verify-page {
 .hidden {
     visibility: hidden;
 }
+
+.display-none {
+    display: none !important;
+}
+
+
 
 
