@@ -1,40 +1,59 @@
 import { getEvents } from "./modules/getEvents.js";
 
-let eventsContainer = document.querySelector(".events-container");
+let containerElem = document.querySelector(".events-container");
+let btnElem = document.querySelector("#reset-btn");
 
 (async function() {
     let eventsArray = await getEvents();
     await listEvents(eventsArray);
 })();
 
-function listEvents(array) {    
-    array.forEach(object => {
-        let section = document.createElement("section");
-        section.classList.toggle("event-section");
-        let sectionDate = document.createElement("section");
-        sectionDate.classList.toggle("section-date")
-        let sectionRest = document.createElement("section");
-        sectionRest.classList.toggle("section-rest")
-        let divTimePrice = document.createElement("div");
-        divTimePrice.classList.toggle("div-time-price")
-        
-        let dateString = object.date;
-        let dateArray = dateString.split(" ");
-        sectionDate.innerHTML += `<span>${dateArray[0]}</span>`;
-        sectionDate.innerHTML += `<span>${dateArray[1]}</span>`;
-        sectionRest.innerHTML += `<span class="rest-name">${object.name}</span>`;
-        sectionRest.innerHTML += `<span class="rest-where">${object.where}</span>`;
-        divTimePrice.innerHTML += `<span class="rest-time">${object.fromTime} - ${object.toTime}</span>`;
-        divTimePrice.innerHTML += `<span class="rest-price">${object.price}</span>`;
-        
-        eventsContainer.appendChild(section);
-        section.appendChild(sectionDate);
-        section.appendChild(sectionRest);
-        sectionRest.appendChild(divTimePrice);
+// Functions
+function listEvents(events) {    
+    events.forEach(event => {
+        let elems = createElems();
+        setClasses(elems);
+        let elemsFilled = fillElems(elems, event);
+        appendElems(containerElem, elemsFilled);
 
-        section.addEventListener("click", () => {
-            sessionStorage.setItem("event-object", JSON.stringify(object));
+        elems.section.addEventListener("click", () => {
+            sessionStorage.setItem("event-object", JSON.stringify(event));
             location.href = "buy.html";
         });
     });
-}
+};
+
+function createElems() {
+    let obj = {};
+    obj.section = document.createElement("section");
+    obj.date = document.createElement("section");
+    obj.rest = document.createElement("section");
+    obj.timePrice = document.createElement("div");
+    return obj;
+};
+
+function setClasses(obj) {
+    obj.section.classList.toggle("event-section");
+    obj.date.classList.toggle("section-date")
+    obj.rest.classList.toggle("section-rest")
+    obj.timePrice.classList.toggle("div-time-price")
+};
+
+function fillElems(elemsObj, currentEvent) {
+    let dateString = currentEvent.date;
+    let dateArray = dateString.split(" ");
+    elemsObj.date.innerHTML += `<span>${dateArray[0]}</span>`;
+    elemsObj.date.innerHTML += `<span>${dateArray[1]}</span>`;
+    elemsObj.rest.innerHTML += `<span class="rest-name">${currentEvent.name}</span>`;
+    elemsObj.rest.innerHTML += `<span class="rest-where">${currentEvent.where}</span>`;
+    elemsObj.timePrice.innerHTML += `<span class="rest-time">${currentEvent.fromTime} - ${currentEvent.toTime}</span>`;
+    elemsObj.timePrice.innerHTML += `<span class="rest-price">${currentEvent.price}</span>`;
+    return elemsObj;
+};
+
+function appendElems(parentElem, elemsObj) {
+    parentElem.appendChild(elemsObj.section);
+    elemsObj.section.appendChild(elemsObj.date);
+    elemsObj.section.appendChild(elemsObj.rest);
+    elemsObj.rest.appendChild(elemsObj.timePrice);
+};

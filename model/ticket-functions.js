@@ -4,7 +4,7 @@ const adapter = new FileSync("database.json");
 const db = low(adapter);
 
 module.exports = {
-    async addTicket(name, id) {
+    addTicket(name, id) {
         let ticketsAvailable = db.get("events").find({ name: name }).get("ticketsAvailable").value();
         if (ticketsAvailable > 0 ) {
             ticketsAvailable--;

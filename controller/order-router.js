@@ -10,7 +10,7 @@ router.post("/order", async (req, res) => {
     };
     const body = req.body;
     const ticketID = generateTicket(6);
-    const ticketAdded = await addTicket(body.name, ticketID);
+    const ticketAdded = addTicket(body.name, ticketID);
     if (ticketAdded) {
         resObj.success = true;
         resObj.ticket = ticketID;

@@ -3,7 +3,10 @@ import { createEvent } from "./modules/createEvent.js"
 import { getValues } from "./modules/getValues.js"
 import { verifyToken } from "./modules/verifyToken.js"
 
-// Token check
+let btnElem = document.querySelector(".add-event-button");
+let gridElem = document.querySelector(".events-grid");
+
+// Verify token
 (async function() {
     const token = sessionStorage.getItem("token");
     let check = await verifyToken(token);
@@ -14,62 +17,80 @@ import { verifyToken } from "./modules/verifyToken.js"
     };
 })();
 
-let btnElem = document.querySelector(".add-event-button");
-let gridElem = document.querySelector(".events-grid");
-let eventsArray = [];
-
 // Getting events to gridElem
 (async function() {
-    eventsArray = await getEvents();
-    await listEvents(eventsArray);
+    let events = await getEvents();
+    await listEvents(events);
 })();
 
+// Eventlisteners to button
 btnElem.addEventListener("mousedown", () => {
     btnElem.classList.toggle("click");
 });
 
 btnElem.addEventListener("mouseup", async () => {
-    let inputs = document.querySelectorAll("input");
     btnElem.classList.toggle("click");
+    let inputs = document.querySelectorAll("input");
     let values = getValues(inputs);
-    clearInputs(inputs);
     let created = await createEvent(values);
-    console.log(created);
-    eventsArray = await getEvents();
+    if (created.success) {
+        clearInputs(inputs);
+    } else {
+        console.log(created);
+    };
+    let updatedEvents = await getEvents();
     await clearGrid();
-    await listEvents(eventsArray);
+    await listEvents(updatedEvents);
 });
 
 
 
-// Functions
-function listEvents(array) {    
-    array.forEach(object => {
-        let nameP = document.createElement("p");
-        let whereP = document.createElement("p");
-        let ticketsP = document.createElement("p");
-        let soldP = document.createElement("p");
-        nameP.classList.toggle("grid-p");
-        nameP.classList.toggle("grid-p-name");
-        whereP.classList.toggle("grid-p");
-        ticketsP.classList.toggle("grid-p");
-        soldP.classList.toggle("grid-p");
 
-        nameP.innerHTML += object.name;
-        whereP.innerHTML += object.where;
-        ticketsP.innerHTML += object.ticketsAvailable;
-        soldP.innerHTML += object.ticketsSold;
-        
-        gridElem.appendChild(nameP);
-        gridElem.appendChild(whereP);
-        gridElem.appendChild(ticketsP);
-        gridElem.appendChild(soldP);
+// Functions
+function listEvents(events) {    
+    events.forEach(event => {
+        let elems = createElems();
+        setClasses(elems);
+        let elemsFilled = fillElems(elems, event);
+        appendElems(elemsFilled, gridElem);
     });
 };
 
+function createElems() {
+    let obj = {};
+    obj.nameP = document.createElement("p");
+    obj.whereP = document.createElement("p");
+    obj.ticketsP = document.createElement("p");
+    obj.soldP = document.createElement("p");
+    return obj;
+};
+
+function setClasses(obj) {
+    obj.nameP.classList.toggle("grid-p");
+    obj.nameP.classList.toggle("grid-p-name");
+    obj.whereP.classList.toggle("grid-p");
+    obj.ticketsP.classList.toggle("grid-p");
+    obj.soldP.classList.toggle("grid-p");
+};
+
+function fillElems(elemsObj, currentEvent) {
+    elemsObj.nameP.innerHTML += currentEvent.name;
+    elemsObj.whereP.innerHTML += currentEvent.where;
+    elemsObj.ticketsP.innerHTML += currentEvent.ticketsAvailable;
+    elemsObj.soldP.innerHTML += currentEvent.ticketsSold;
+    return elemsObj;
+};
+
+function appendElems(elemsObj, parentElem) {
+    parentElem.appendChild(elemsObj.nameP);
+    parentElem.appendChild(elemsObj.whereP);
+    parentElem.appendChild(elemsObj.ticketsP);
+    parentElem.appendChild(elemsObj.soldP);
+};
+
 function clearGrid() {
-    let gridPs = document.querySelectorAll(".grid-p");
-    gridPs.forEach(p => {
+    let pElems = document.querySelectorAll(".grid-p");
+    pElems.forEach(p => {
         gridElem.removeChild(p);
     });
 };

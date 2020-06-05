@@ -1,10 +1,8 @@
 import { verifyTicket } from "./modules/verifyTicket.js"
 import { verifyToken } from "./modules/verifyToken.js"
 
-
 // Token check
 (async function() {
-    console.log("running check...")
     const token = sessionStorage.getItem("token");
     let check = await verifyToken(token);
     if (check.success !== true || check.user.role !== "staff") {

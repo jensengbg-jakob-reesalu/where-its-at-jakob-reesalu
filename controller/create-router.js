@@ -8,11 +8,12 @@ router.post("/create", async (req, res) => {
         success: false
     };
     const body = req.body;
-    const eventConflict = await findEvent(body.name);
-    if (eventConflict) {
+    const eventValues = Object.values(body);
+    const eventExists = await findEvent(body.name);
+    if (eventExists) {
         resObj.message = "Event already exists.";
-    } else if (body.name == "") {
-         resObj.message = "Event must have a name!";
+    } else if (eventValues.includes("")) {
+         resObj.message = "One or several fields lack an input!";
     } else {
         const newEvent = await addEvent(body);
         if (newEvent) {
