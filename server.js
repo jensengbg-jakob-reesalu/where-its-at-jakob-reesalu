@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 // ROUTERS
 const loginRouter = require("./controller/login-router");
+const authRouter = require("./controller/auth-router");
 const createRouter = require("./controller/create-router");
 const verifyRouter = require("./controller/verify-router");
 const eventsRouter = require("./controller/events-router");
@@ -15,6 +16,7 @@ app.use(express.static("view"));
 app.use(bodyParser.json());
 
 app.use("/api", loginRouter);
+app.use("/api", authRouter);
 app.use("/api", createRouter);
 app.use("/api", verifyRouter);
 app.use("/api", eventsRouter);

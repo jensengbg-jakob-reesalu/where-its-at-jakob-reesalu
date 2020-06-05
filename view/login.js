@@ -11,11 +11,11 @@ btnElem.addEventListener("click", async () => {
         password: values.lösenord
     };
     const loggedIn = await login(loginObj);
-    console.log(loggedIn);
+    console.log(loggedIn.message);
     const token = loggedIn.token;
     if (loggedIn.success) {
         sessionStorage.setItem("token", token);
-        if (loginObj.username == "admin") {
+        if (loggedIn.role == "admin") {
             location.href = "create.html";
         } else {
             location.href = "verify.html";

@@ -1,18 +1,21 @@
 import { getEvents } from "./modules/getEvents.js"
 import { createEvent } from "./modules/createEvent.js"
 import { getValues } from "./modules/getValues.js"
+import { verifyToken } from "./modules/verifyToken.js"
 
 // Token check
-let token = sessionStorage.getItem("token");
-if (!token) {
-    location.href = "login.html";
-} else {
-    document.querySelector("body").classList.toggle("display-none");
-};
+(async function() {
+    const token = sessionStorage.getItem("token");
+    let check = await verifyToken(token);
+    if (check.success !== true || check.user.role !== "admin") {
+        location.href = "login.html";
+    } else {
+        document.querySelector("body").classList.toggle("display-none");
+    };
+})();
 
 let btnElem = document.querySelector(".add-event-button");
 let gridElem = document.querySelector(".events-grid");
-let inputs = document.querySelectorAll("input");
 let eventsArray = [];
 
 // Getting events to gridElem
@@ -26,8 +29,10 @@ btnElem.addEventListener("mousedown", () => {
 });
 
 btnElem.addEventListener("mouseup", async () => {
+    let inputs = document.querySelectorAll("input");
     btnElem.classList.toggle("click");
     let values = getValues(inputs);
+    clearInputs(inputs);
     let created = await createEvent(values);
     console.log(created);
     eventsArray = await getEvents();
@@ -35,6 +40,9 @@ btnElem.addEventListener("mouseup", async () => {
     await listEvents(eventsArray);
 });
 
+
+
+// Functions
 function listEvents(array) {    
     array.forEach(object => {
         let nameP = document.createElement("p");
@@ -66,6 +74,8 @@ function clearGrid() {
     });
 };
 
-function clearInputs(inputs) {
-
-}
+function clearInputs(array) {
+    array.forEach(input => {
+        input.value = "";
+    });
+};

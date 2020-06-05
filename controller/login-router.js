@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const router = new Router();
 const jwt = require("jsonwebtoken");
-const { v4:uuidv4 } = require("uuid");
 
 const { getUser } = require("../model/getUser");
 const { comparePasswords } = require("./modules/bcrypt-functions");
@@ -18,13 +17,14 @@ router.post("/login", async (req, res) => {
     };
     const isAMatch = await comparePasswords(body.password, user.password);
     if (user && isAMatch) {
-        const secretKey = uuidv4();
+        const secretKey = "49aab262-64de-49ed-aa19-6e081ab78d5e";
         const token = jwt.sign({ 
             id: user.id,
             name: user.username,
             role: user.role 
         }, secretKey, { expiresIn: 600 });
         resObj.success = true;
+        resObj.role = user.role;
         resObj.token = token;
     } else {
         resObj.message = "Wrong username or password!";

@@ -1,12 +1,18 @@
 import { verifyTicket } from "./modules/verifyTicket.js"
+import { verifyToken } from "./modules/verifyToken.js"
 
-let token = sessionStorage.getItem("token");
-if (!token) {
-    location.href = "login.html";
-} else {
-    let body = document.querySelector("body");
-    body.classList.toggle("display-none");
-};
+
+// Token check
+(async function() {
+    console.log("running check...")
+    const token = sessionStorage.getItem("token");
+    let check = await verifyToken(token);
+    if (check.success !== true || check.user.role !== "staff") {
+        location.href = "login.html";
+    } else {
+        document.querySelector("body").classList.toggle("display-none");
+    };
+})();
 
 let btnElem = document.querySelector("button");
 btnElem.addEventListener("click", async () => {
