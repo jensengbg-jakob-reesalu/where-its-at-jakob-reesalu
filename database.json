@@ -64,18 +64,15 @@
       "date": "23 OCT",
       "fromTime": "18:00",
       "toTime": "21:00",
-      "ticketsAvailable": 2,
+      "ticketsAvailable": 3,
       "price": "355",
-      "ticketsSold": 3,
+      "ticketsSold": 2,
       "bookedTickets": [
         {
           "ticketID": "64rAR0"
         },
         {
           "ticketID": "3t229O"
-        },
-        {
-          "ticketID": "8M9812"
         }
       ]
     }
