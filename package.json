@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jensengbg-jakob-reesalu/where-its-at-jakob-reesalu#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "lowdb": "^1.0.0",
     "nodemon": "^2.0.4",
